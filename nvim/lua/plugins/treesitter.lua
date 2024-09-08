@@ -10,8 +10,6 @@ return {
       treesitter.setup({
         highlight = { enable = true },
         indent = { enable = true },
-        autotag = { enable = true },
-        indent = { enable = true },
         ensure_installed = {
           'lua',
           'json',
@@ -28,9 +26,9 @@ return {
       })
       require('nvim-ts-autotag').setup({
         opts = {
-          enable_close = true, 
+          enable_close = true,
           enable_rename = true,
-          enable_close_on_slash = false 
+          enable_close_on_slash = false
         },
       })
     end
