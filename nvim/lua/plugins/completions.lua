@@ -42,10 +42,10 @@ return {
           end, {'i', 's'}),
         }),
         sources = cmp.config.sources({
-          { name = 'path' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
-          { name = 'ast_grep' }
+          { name = 'ast_grep' },
+          { name = 'path' },
         })
       })
     end
