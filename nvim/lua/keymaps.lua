@@ -18,10 +18,10 @@ vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy
 vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 
 --barbar plugin
-vim.keymap.set('n', '<leader>tl', '<cmd>BufferNext<CR>', {})
-vim.keymap.set('n', '<leader><Tab>', '<cmd>BufferNext<CR>', {})
-vim.keymap.set('n', '<leader>th', '<cmd>BufferPrevious<CR>', {})
-vim.keymap.set('n', '<leader>tq', '<cmd>BufferClose<CR>', {})
+vim.keymap.set('n', '<S-Tab>', '<cmd>BufferNext<CR>', {})
+vim.keymap.set('n', '<leader>bc', '<cmd>BufferClose<CR>', {})
+vim.keymap.set('n', '<leader>bn', '<cmd>BufferNext<CR>', {})
+vim.keymap.set('n', '<leader>bp', '<cmd>BufferPrevious<CR>', {})
 
 --diagnostics
 vim.keymap.set('n', '<leader>ds', vim.diagnostic.open_float, {})
