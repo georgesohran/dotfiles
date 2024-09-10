@@ -19,14 +19,17 @@ vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find
 
 --barbar plugin
 vim.keymap.set('n', '<S-Tab>', '<cmd>BufferNext<CR>', {})
-vim.keymap.set('n', '<leader>bc', '<cmd>BufferClose<CR>', {})
+vim.keymap.set('n', '<leader>bq', '<cmd>BufferClose<CR>', {})
 vim.keymap.set('n', '<leader>bn', '<cmd>BufferNext<CR>', {})
 vim.keymap.set('n', '<leader>bp', '<cmd>BufferPrevious<CR>', {})
 
 --diagnostics
 vim.keymap.set('n', '<leader>ds', vim.diagnostic.open_float, {})
 
---git integration (later) 
+--toggleterm
+vim.keymap.set('n', '<leader>tt', '<cmd>:ToggleTerm size=30 direction=horizontal<CR>')
+
+--git integration (do later with toggleterm) 
 -- vim.keymap.set('n', '<leader>ga', function ()
 --   local pathfile = vim.fn.expand('%:p')
 --   local wdir = vim.fn.getcwd()
