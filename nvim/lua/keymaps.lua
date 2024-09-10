@@ -26,8 +26,7 @@ vim.keymap.set('n', '<leader>bp', '<cmd>BufferPrevious<CR>', {})
 --diagnostics
 vim.keymap.set('n', '<leader>ds', vim.diagnostic.open_float, {})
 
---git integration 
-vim.keymap.set('n', '<leader>gg', '<cmd>Neogit<CR>', {})
+--git integration (later) 
 -- vim.keymap.set('n', '<leader>ga', function ()
 --   local pathfile = vim.fn.expand('%:p')
 --   local wdir = vim.fn.getcwd()
