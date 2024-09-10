@@ -26,3 +26,23 @@ vim.keymap.set('n', '<leader>bp', '<cmd>BufferPrevious<CR>', {})
 --diagnostics
 vim.keymap.set('n', '<leader>ds', vim.diagnostic.open_float, {})
 
+--git integration
+vim.keymap.set('n', '<leader>ga', function ()
+  local pathfile = vim.fn.expand('%:p')
+  local wdir = vim.fn.getcwd()
+
+  os.execute(string.format('cd %s', wdir))
+  os.execute(string.format('git add %s', pathfile))
+  os.execute('exit')
+
+end, {})
+
+vim.keymap.set('n', '<leader>gc', function ()
+  local commit_msg = vim.fn.input('commit message:')
+  os.execute(string.format('git commit -m %s', commit_msg))
+
+end)
+
+vim.keymap.set('n', '<leader>gP', function ()
+  os.execute('git push')
+end)
