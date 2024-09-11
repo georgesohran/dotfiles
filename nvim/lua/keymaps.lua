@@ -45,21 +45,15 @@ vim.keymap.set('n', '<leader>gc', function ()
 
   os.execute(string.format('cd %s', path))
   local commit_msg = vim.fn.input('commit message: ')
-  local handle = io.popen(string.format('git commit -m "%s"', commit_msg))
-  local result = handle:read("*a")
-  handle:close()
-  
-  print(result)
+
+  -- execute comand without somehow flooding current buffer 
+  io.popen(string.format('git commit -m "%s"', commit_msg)):close()
 end)
---
--- vim.keymap.set('n', '<leader>gc', function ()
---   local commit_msg = vim.fn.input('commit message: ')
---   os.execute(string.format('git commit -m %s', commit_msg))
---   os.execute('exit')
---
--- end)
---
--- vim.keymap.set('n', '<leader>gP', function ()
---   os.execute('git push')
---   os.execute('exit')
--- end)
+
+vim.keymap.set('n', '<leader>gP', function ()
+  local path = vim.fn.expand("%:p:h")
+
+  os.execute(string.format('cd %s', path))
+  os.execute(string.format('git push'))
+  
+end)
