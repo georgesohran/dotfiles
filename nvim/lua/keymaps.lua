@@ -27,21 +27,17 @@ vim.keymap.set('n', '<leader>bp', '<cmd>BufferPrevious<CR>', {})
 vim.keymap.set('n', '<leader>ds', vim.diagnostic.open_float, {})
 
 --toggleterm
-vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm size=15 direction=horizontal name=terminal<CR>', {})
 vim.keymap.set({'n', 't'}, '<C-t>', '<cmd>ToggleTerm size=15 direction=horizontal name=terminal<CR>', {})
 
 --git integration (do later with toggleterm) 
--- vim.keymap.set('n', '<leader>ga', function ()
---   local pathfile = vim.fn.expand('%:p')
---   local wdir = vim.fn.getcwd()
---
---   os.execute(string.format('cd %s', wdir))
---   os.execute(string.format('git add %s', pathfile))
---   os.execute('exit')
---
--- end, {})
---
--- vim.keymap.set('')
+vim.keymap.set('n', '<leader>ga', function ()
+  local path = vim.fn.expand("%:p:h")
+  local file = vim.fn.expand("%:p")
+
+  os.execute(string.format('cd %s', path))
+  os.execute(string.format('git add %s', file))
+end, {})
+
 --
 -- vim.keymap.set('n', '<leader>gc', function ()
 --   local commit_msg = vim.fn.input('commit message: ')
