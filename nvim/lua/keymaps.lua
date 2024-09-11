@@ -36,8 +36,21 @@ vim.keymap.set('n', '<leader>ga', function ()
 
   os.execute(string.format('cd %s', path))
   os.execute(string.format('git add %s', file))
+
+  print(string.format('added file: %s', file))
 end, {})
 
+vim.keymap.set('n', '<leader>gc', function ()
+  local path = vim.fn.expand("%:p:h")
+
+  os.execute(string.format('cd %s', path))
+  local commit_msg = vim.fn.input('commit message: ')
+  local handle = io.popen(string.format('git commit -m "%s"', commit_msg))
+  local result = handle:read("*a")
+  handle:close()
+  
+  print(result)
+end)
 --
 -- vim.keymap.set('n', '<leader>gc', function ()
 --   local commit_msg = vim.fn.input('commit message: ')
