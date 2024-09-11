@@ -27,7 +27,8 @@ vim.keymap.set('n', '<leader>bp', '<cmd>BufferPrevious<CR>', {})
 vim.keymap.set('n', '<leader>ds', vim.diagnostic.open_float, {})
 
 --toggleterm
-vim.keymap.set('n', '<leader>tt', '<cmd>:ToggleTerm size=30 direction=horizontal<CR>')
+vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm size=15 direction=horizontal name=terminal<CR>', {})
+vim.keymap.set({'n', 't'}, '<C-t>', '<cmd>ToggleTerm size=15 direction=horizontal name=terminal<CR>', {})
 
 --git integration (do later with toggleterm) 
 -- vim.keymap.set('n', '<leader>ga', function ()
