@@ -54,15 +54,13 @@ vim.keymap.set('n', '<leader>gP', function ()
   local path = vim.fn.expand("%:p:h")
   os.execute(string.format('cd %s', path))
 
-  os.execute(string.format('git push'))
-  
+  -- execute comand without somehow flooding current buffer 
+  io.popen(string.format('git push')):close()
 end, { desc = 'git push'})
 
 vim.keymap.set('n', '<leader>gC', function()
   local path = vim.fn.expand("%:p:h")
   os.execute(string.format('cd %s', path))
-
-  -- local branch =
 
 end, {desc = 'git checkout'})
 
