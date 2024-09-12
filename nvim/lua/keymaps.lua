@@ -40,6 +40,7 @@ vim.keymap.set('n', '<leader>ga', function ()
   print(string.format('added file: %s', file))
 end, { desc = 'git add current file'})
 
+
 vim.keymap.set('n', '<leader>gc', function ()
   local path = vim.fn.expand("%:p:h")
   os.execute(string.format('cd %s', path))
@@ -50,13 +51,25 @@ vim.keymap.set('n', '<leader>gc', function ()
   io.popen(string.format('git commit -m "%s"', commit_msg)):close()
 end, { desc = 'git commit'})
 
-vim.keymap.set('n', '<leader>gP', function ()
+
+vim.keymap.set('n', '<leader>gp', function ()
   local path = vim.fn.expand("%:p:h")
   os.execute(string.format('cd %s', path))
 
   -- execute comand without somehow flooding current buffer 
-  io.popen(string.format('git push')):close()
+  local out = io.popen('git push')
+  out:close()
 end, { desc = 'git push'})
+
+
+vim.keymap.set('n', '<leader>gs', function ()
+  local path = vim.fn.expand("%:p:h")
+  os.execute(string.format('cd %s', path))
+  
+  
+  
+end)
+
 
 vim.keymap.set('n', '<leader>gC', function()
   local path = vim.fn.expand("%:p:h")
@@ -64,7 +77,7 @@ vim.keymap.set('n', '<leader>gC', function()
 
 end, {desc = 'git checkout'})
 
-vim.keymap.set('n', '<leader>gp', function ()
+vim.keymap.set('n', '<leader>gP', function ()
   local path = vim.fn.expand('%:p:h')
   os.execute(string.format('cd %s', path))
 
