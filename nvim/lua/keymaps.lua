@@ -68,7 +68,7 @@ vim.keymap.set('n', '<leader>gs', function ()
   
   
   
-end)
+end, { desc = 'git status' })
 
 
 vim.keymap.set('n', '<leader>gC', function()
