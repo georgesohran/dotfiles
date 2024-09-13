@@ -36,59 +36,65 @@ vim.keymap.set('n', '<leader>ds', vim.diagnostic.open_float, {})
 vim.keymap.set({'n', 't'}, '<C-t>', '<cmd>ToggleTerm size=15 direction=horizontal name=terminal<CR>', {})
 
 
---git integration (maybe turn it into a plugin)
---
--- use lazygit for now :(
---
--- vim.keymap.set('n', '<leader>ga', function ()
---   local path = vim.fn.expand("%:p:h")
---   local file = vim.fn.expand("%:p")
---   os.execute(string.format('cd %s', path))
---   os.execute(string.format('git add %s', file))
---
---   print(string.format('added file: %s', file))
--- end, { desc = 'git add current file'})
---
---
--- vim.keymap.set('n', '<leader>gc', function ()
---   local path = vim.fn.expand("%:p:h")
---   os.execute(string.format('cd %s', path))
---
---   local commit_msg = vim.fn.input('commit message: ')
---
---   -- execute comand without somehow flooding current buffer 
---   io.popen(string.format('git commit -m "%s"', commit_msg)):close()
--- end, { desc = 'git commit'})
---
---
--- vim.keymap.set('n', '<leader>gp', function ()
---   local path = vim.fn.expand("%:p:h")
---   os.execute(string.format('cd %s', path))
---
---   -- execute comand without somehow flooding current buffer 
---   local out = io.popen('git push')
---   out:close()
---
---   pritn('pushed branch main')
--- end, { desc = 'git push'})
---
---
--- vim.keymap.set('n', '<leader>gs', function ()
---   local path = vim.fn.expand("%:p:h")
---   os.execute(string.format('cd %s', path))
---   
--- end, { desc = 'git status' })
---
---
--- vim.keymap.set('n', '<leader>gC', function()
---   local path = vim.fn.expand("%:p:h")
---   os.execute(string.format('cd %s', path))
---
--- end, {desc = 'git checkout'})
---
--- vim.keymap.set('n', '<leader>gP', function ()
---   local path = vim.fn.expand('%:p:h')
---   os.execute(string.format('cd %s', path))
---
---   os.execute(string.format('git pull'))
--- end, { desc = 'git pull'})
+--git integration (maybe turn it into a plugin, didn't like lazy git)
+
+vim.keymap.set('n', '<leader>ga', function ()
+  local path = vim.fn.expand("%:p:h")
+  local file = vim.fn.expand("%:p")
+  os.execute(string.format('cd %s', path))
+  os.execute(string.format('git add %s', file))
+
+  print(string.format('added file: %s', file))
+end, { desc = 'git add current file'})
+
+
+vim.keymap.set('n', '<leader>gc', function ()
+  local path = vim.fn.expand("%:p:h")
+  os.execute(string.format('cd %s', path))
+
+  local commit_msg = vim.fn.input('commit message: ')
+
+  -- execute comand without somehow flooding current buffer 
+  io.popen(string.format('git commit -m "%s"', commit_msg)):close()
+
+  print('commited')
+end, { desc = 'git commit'})
+
+
+vim.keymap.set('n', '<leader>gp', function ()
+  local path = vim.fn.expand("%:p:h")
+  os.execute(string.format('cd %s', path))
+
+  -- execute comand without somehow flooding current buffer 
+  local out = io.popen('git push')
+  out:close()
+
+  print('pushed branch main')
+end, { desc = 'git push'})
+
+
+vim.keymap.set('n', '<leader>gs', function ()
+  local path = vim.fn.expand("%:p:h")
+  os.execute(string.format('cd %s', path))
+
+  local out = io.popen('git status')
+  local text = out:read('*a')
+  out:close()
+  
+  require('utils').get_floating_window(60,15)
+  
+end, { desc = 'git status' })
+
+
+vim.keymap.set('n', '<leader>gC', function()
+  local path = vim.fn.expand("%:p:h")
+  os.execute(string.format('cd %s', path))
+
+end, {desc = 'git checkout'})
+
+vim.keymap.set('n', '<leader>gP', function ()
+  local path = vim.fn.expand('%:p:h')
+  os.execute(string.format('cd %s', path))
+
+  os.execute(string.format('git pull'))
+end, { desc = 'git pull'})
