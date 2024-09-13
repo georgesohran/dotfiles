@@ -31,15 +31,10 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ['<C-e>'] = cmp.mapping.abort(),
-          -- finally perfect enter config for me
-          ['<CR>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item(select_opts)
-              cmp.confirm({select = true})
-            else
-              fallback()
-            end
-          end, {'i', 's'}),
+          ['<CR>'] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+          }),
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
