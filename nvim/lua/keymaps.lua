@@ -55,29 +55,58 @@ local mini_window = function (buf)
   return window
 end
 
+local commit_window = function (buf)
+  local ui = vim.api.nvim_list_uis()[1]
+  local window = vim.api.nvim_open_win(buf, 1, {
+    relative = 'editor',
+    width = miniui_width,
+    height = 5,
+    col = (ui.width/2) - (miniui_width/2),
+    row = (ui.height/2) - (5/2),
+    anchor = 'NW',
+    style = 'minimal',
+    border = 'rounded'
+  })
+  vim.api.nvim_win_set_option(window, 'wrap', true)
+  return window
+end
+
+
+-- git add 
 vim.keymap.set('n', '<leader>ga', function ()
   local path = vim.fn.expand("%:p:h")
   local file = vim.fn.expand("%:p")
+
   os.execute(string.format('cd %s', path))
   os.execute(string.format('git add %s', file))
 
-  print(string.format('added file: %s', file))
+  print(string.format('git added file: %s', file))
 end, { desc = 'git add current file'})
 
 
+-- git commit
 vim.keymap.set('n', '<leader>gc', function ()
   local path = vim.fn.expand("%:p:h")
   os.execute(string.format('cd %s', path))
 
-  local commit_msg = vim.fn.input('commit message: ')
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_lines(buf, 0, 0, false, {'your commit message here: '})
 
-  -- execute comand without somehow flooding current buffer 
-  io.popen(string.format('git commit -m "%s"', commit_msg)):close()
+  local win = commit_window(buf)
+  vim.api.nvim_win_set_cursor(win, {1, string.len('your commit message here:')})
 
-  print('commited')
+  local commit_msg = ''
+  vim.api.nvim_buf_create_user_command(buf, 'CloseWindow', function()
+    commit_msg = vim.api.nvim_buf_get_lines(buf, 1, 100, false)[2]
+    vim.api.nvim_buf_delete(buf, {})
+    print(commit_msg)
+  end, {})
+  vim.api.nvim_buf_set_keymap(buf, 'i', '<CR>', '<cmd>CloseWindow<CR>', {})
+
 end, { desc = 'git commit'})
 
 
+-- git push
 vim.keymap.set('n', '<leader>gP', function ()
   local path = vim.fn.expand("%:p:h")
   os.execute(string.format('cd %s', path))
@@ -102,6 +131,7 @@ vim.keymap.set('n', '<leader>gP', function ()
 end, { desc = 'git push'})
 
 
+-- git status
 vim.keymap.set('n', '<leader>gs', function ()
   local path = vim.fn.expand("%:p:h")
   os.execute(string.format('cd %s', path))
@@ -122,7 +152,6 @@ vim.keymap.set('n', '<leader>gs', function ()
   out:close()
 
   vim.api.nvim_buf_set_lines(buf, 0, miniui_heigth, false, lines)
-
 
 end, { desc = 'git status' })
 
