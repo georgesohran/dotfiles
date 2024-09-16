@@ -79,7 +79,7 @@ vim.keymap.set('n', '<leader>gc', function ()
   local res = h:read('*a')
   h:close()
 
-  print(res)
+  print('commit')
 
 end, { desc = 'git commit'})
 
@@ -104,6 +104,7 @@ vim.keymap.set('n', '<leader>gP', function ()
 
   out:close()
 
+  vim.api.nvim_buf_set_keymap(buf, 'n', 'q', '<cmd>q<CR>',{})
   vim.api.nvim_buf_set_lines(buf, 0, miniui_heigth, false, lines)
 
 end, { desc = 'git push'})
@@ -115,6 +116,10 @@ vim.keymap.set('n', '<leader>gs', function ()
   os.execute(string.format('cd %s', path))
 
   local buf = vim.api.nvim_create_buf(false, true)
+
+  vim.api.nvim_buf_set_keymap(buf, 'n', 'q', '<cmd>q<CR>',{})
+  vim.api.nvim_buf_set_keymap(buf, 'n', '<Esc>', '<cmd>q<CR>',{})
+  vim.api.nvim_buf_set_keymap(buf, 'n', '<C-q>', '<cmd>q<CR>',{})
 
   mini_window(buf)
 
