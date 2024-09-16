@@ -75,9 +75,11 @@ vim.keymap.set('n', '<leader>gc', function ()
   local prompt = 'your commit message here:  '
 
   local message = vim.fn.input(prompt)
-  io.popen(string.format('git commit -m', message)):close()
+  local h = io.popen(string.format('git commit -m "%s"', message))
+  local res = h:read('*a')
+  h:close()
 
-  print('commit')
+  print(res)
 
 end, { desc = 'git commit'})
 
