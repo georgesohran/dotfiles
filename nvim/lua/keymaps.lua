@@ -75,6 +75,7 @@ vim.keymap.set('n', '<leader>gc', function ()
   local prompt = 'your commit message here:  '
 
   local message = vim.fn.input(prompt)
+
   local h = io.popen(string.format('git commit -m "%s"', message))
   local res = h:read('*a')
   h:close()
@@ -92,8 +93,7 @@ vim.keymap.set('n', '<leader>gP', function ()
   local buf = vim.api.nvim_create_buf(false, true)
 
   mini_window(buf)
-
-  local out = io.popen('git push')
+   
 
   local lines = {}
   local c = 1
@@ -102,11 +102,9 @@ vim.keymap.set('n', '<leader>gP', function ()
     c = c + 1
   end
 
-  out:close()
-
   vim.api.nvim_buf_set_keymap(buf, 'n', 'q', '<cmd>q<CR>',{})
   vim.api.nvim_buf_set_lines(buf, 0, miniui_heigth, false, lines)
-
+  
 end, { desc = 'git push'})
 
 
@@ -150,5 +148,4 @@ vim.keymap.set('n', '<leader>gp', function ()
   local path = vim.fn.expand('%:p:h')
   os.execute(string.format('cd %s', path))
 
-  os.execute(string.format('git pull'))
 end, { desc = 'git pull'})
