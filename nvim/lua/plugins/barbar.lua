@@ -8,6 +8,11 @@ return {
     vim.g.barbar_auto_setup = false 
   end,
   opts = {
+    animation = false,
+    gitsigns = {
+      added = {enabled = true, icon = '+'},
+      changed = {enabled = true, icon = '~'},
+    },
     insert_at_start = true,
     clickable = true,
     separator = {left = '', right = '│'},
