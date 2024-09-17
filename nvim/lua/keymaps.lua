@@ -36,14 +36,16 @@ vim.keymap.set('n', '<leader>ds', vim.diagnostic.open_float, {})
 vim.keymap.set({'n', 't'}, '<C-t>', '<cmd>ToggleTerm size=15 direction=horizontal name=terminal<CR>', {})
 
 --fugitive
-
-vim.keymap.set('n', '<leader>gs', '<cmd>Git<CR>', {})
-vim.keymap.set('n', '<leader>ga', '<cmd>Gwrite<CR>', {})
-vim.keymap.set('n', '<leader>gr', '<cmd>Gread<CR>', {})
-vim.keymap.set('n', '<leader>gc', '<cmd>Git commit<CR>', {})
+vim.keymap.set('n', '<leader>gg', '<cmd>Git<CR>', {})
+vim.keymap.set('n', '<leader>ga', '<cmd>Git add<CR>', {})
+vim.keymap.set('n', '<leader>gr', '<cmd>Git restore<CR>', {})
+vim.keymap.set('n', '<leader>gc', function ()
+  local msg = vim.fn.input('commit message here: ')
+  vim.cmd(string.format('Git commit -m "%s"', msg))
+end, {})
 vim.keymap.set('n', '<leader>gP', '<cmd>Git push<CR>', {})
 
---git integration (maybe turn it into a plugin, didn't like lazy git)
+--git integration (luckily found out about fugitive, so now using it )
 -- local miniui_width = 80
 -- local miniui_heigth = 15
 --
