@@ -64,6 +64,8 @@ vim.keymap.set('n', '<leader>ga', function ()
   os.execute(string.format('git add %s', file))
 
   print(string.format('git added file: %s', file))
+
+  os.execute('exit')
 end, { desc = 'git add current file'})
 
 
@@ -82,6 +84,7 @@ vim.keymap.set('n', '<leader>gc', function ()
 
   print('commit')
 
+  os.execute('exit')
 end, { desc = 'git commit'})
 
 
@@ -90,21 +93,26 @@ vim.keymap.set('n', '<leader>gP', function ()
   local path = vim.fn.expand("%:p:h")
   os.execute(string.format('cd %s', path))
 
-  local buf = vim.api.nvim_create_buf(false, true)
+  -- local buf = vim.api.nvim_create_buf(false, true)
 
-  mini_window(buf)
-   
+  os.execute('git push')
 
-  local lines = {}
-  local c = 1
-  for line in out:lines() do
-    lines[c] = line
-    c = c + 1
-  end
+  -- local tempfile = io.open('/tmp/tempgitfile')
+  -- io.output(tempfile)
 
-  vim.api.nvim_buf_set_keymap(buf, 'n', 'q', '<cmd>q<CR>',{})
-  vim.api.nvim_buf_set_lines(buf, 0, miniui_heigth, false, lines)
+  -- mini_window(buf)
+
+  -- local lines = {}
+  -- local c = 1
+  -- for line in out:lines() do
+  --   lines[c] = line
+  --   c = c + 1
+  -- end
+
+  -- vim.api.nvim_buf_set_keymap(buf, 'n', 'q', '<cmd>q<CR>',{})
+  -- vim.api.nvim_buf_set_lines(buf, 0, miniui_heigth, false, lines)
   
+  os.execute('exit')
 end, { desc = 'git push'})
 
 
