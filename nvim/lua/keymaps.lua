@@ -37,7 +37,11 @@ vim.keymap.set({'n', 't'}, '<C-t>', '<cmd>ToggleTerm size=15 direction=horizonta
 
 --fugitive
 
-vim.keymap.set('n', '<leader>ga', '<cmd>Gwrite<CR>')
+vim.keymap.set('n', '<leader>gs', '<cmd>Git<CR>', {})
+vim.keymap.set('n', '<leader>ga', '<cmd>Gwrite<CR>', {})
+vim.keymap.set('n', '<leader>gr', '<cmd>Gread<CR>', {})
+vim.keymap.set('n', '<leader>gc', '<cmd>Git commit -m<CR>', {})
+vim.keymap.set('n', '<leader>gP', '<cmd>Git push<CR>', {})
 
 --git integration (maybe turn it into a plugin, didn't like lazy git)
 -- local miniui_width = 80
