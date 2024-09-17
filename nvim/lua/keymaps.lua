@@ -37,13 +37,21 @@ vim.keymap.set({'n', 't'}, '<C-t>', '<cmd>ToggleTerm size=15 direction=horizonta
 
 --fugitive
 vim.keymap.set('n', '<leader>gg', '<cmd>Git<CR>', {})
-vim.keymap.set('n', '<leader>ga', '<cmd>Git add<CR>', {})
-vim.keymap.set('n', '<leader>gr', '<cmd>Git restore<CR>', {})
+
+vim.keymap.set('n', '<leader>ga', function ()
+  local path = vim.fn.expand('%:p')
+  vim.cmd(string.format('Git add %s', path))
+  print(string.format('added file %s', path))
+end, {})
+
 vim.keymap.set('n', '<leader>gc', function ()
   local msg = vim.fn.input('commit message here: ')
   vim.cmd(string.format('Git commit -m "%s"', msg))
 end, {})
+
 vim.keymap.set('n', '<leader>gP', '<cmd>Git push<CR>', {})
+
+vim.keymap.set('n', '<leader>gp', '<cmd>Git pull<CR>', {})
 
 --git integration (luckily found out about fugitive, so now using it )
 -- local miniui_width = 80
