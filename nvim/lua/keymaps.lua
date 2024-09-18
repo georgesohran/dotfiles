@@ -58,6 +58,11 @@ vim.keymap.set('n', '<leader>gb', function ()
   vim.cmd(string.format('Git branch %s', name))
 end, {})
 
+vim.keymap.set('n' ,'<leader>gh', function ()
+  local name = vim.fn.input('switch to branch: ')
+  vim.cmd(string.format('Git checkout %s', name))
+end, {})
+
 --git integration (luckily found out about fugitive, so now using it )
 -- local miniui_width = 80
 -- local miniui_heigth = 15
