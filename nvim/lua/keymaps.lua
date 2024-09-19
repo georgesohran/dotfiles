@@ -58,7 +58,7 @@ vim.keymap.set('n', '<leader>gb', function ()
   vim.cmd(string.format('Git branch %s', name))
 end, {})
 
-vim.keymap.set('n' ,'<leader>gh', function ()
+vim.keymap.set('n' ,'<leader>gs', function ()
   local name = vim.fn.input('switch to branch: ')
   vim.cmd(string.format('Git checkout %s', name))
 end, {})
