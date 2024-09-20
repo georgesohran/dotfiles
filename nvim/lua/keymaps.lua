@@ -2,6 +2,8 @@ vim.g.mapleader = ' '
 
 vim.keymap.set('i', 'jk', '<Esc>', {})
 
+vim.keymap.set('n', '<leader>nh', '<cmd>nohl<CR>', {})
+
 -- moving arround
 vim.keymap.set('i', '<C-j>', '<Down>', {})
 vim.keymap.set('i', '<C-k>', '<Up>', {})
