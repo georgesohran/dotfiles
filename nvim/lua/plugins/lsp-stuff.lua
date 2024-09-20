@@ -10,7 +10,7 @@ return {
     config = function()
       require('mason-lspconfig').setup({
         ensure_installed = {
-          'autoflake',
+          'pyright',
           'ast_grep',
           'lua_ls',
           'rust_analyzer',
@@ -27,7 +27,7 @@ return {
       lsp_conf.lua_ls.setup({capabilities = capabilities})
       lsp_conf.ast_grep.setup({capabilities = capabilities})
       lsp_conf.rust_analyzer.setup({capabilities = capabilities})
-      lsp_conf.autoflake.setup({capabilities = capabilities})
+      lsp_conf.pyright.setup({capabilities = capabilities})
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
