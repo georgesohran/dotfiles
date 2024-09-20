@@ -10,6 +10,7 @@ return {
     config = function()
       require('mason-lspconfig').setup({
         ensure_installed = {
+          'html',
           'pyright',
           'ast_grep',
           'lua_ls',
@@ -28,6 +29,7 @@ return {
       lsp_conf.ast_grep.setup({capabilities = capabilities})
       lsp_conf.rust_analyzer.setup({capabilities = capabilities})
       lsp_conf.pyright.setup({capabilities = capabilities})
+      lsp_conf.html.setup({capabilities = capabilities})
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
