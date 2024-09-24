@@ -93,7 +93,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias fd='cd $(find * -type d | fzf)'
-alias activate='source ./$1/bin/activate'
+alias activate='source ./.venv/bin/activate'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
