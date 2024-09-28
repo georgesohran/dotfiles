@@ -92,7 +92,8 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias fd='cd $(find * -type d | fzf)'
+# my custom aliases
+alias fd='cd $(find * -type d | fzf) '
 alias activate='source ./.venv/bin/activate'
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -119,10 +120,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PS1="\[\e[0;32m\][ \[\e[0;34m\]\w \[\e[0;32m\]] \[\e[0;37m\]$ \[\e[0m\]"
-. "$HOME/.cargo/env"
+# export PS1="\[\e[0;32m\][ \[\e[0;34m\]\w \[\e[0;32m\]] \[\e[0;37m\]$ \[\e[0m\]"
+# . "$HOME/.cargo/env"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# autostartin tmux 
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  tmux attach-session -t default || tmux new-session -s default
+fi
 
