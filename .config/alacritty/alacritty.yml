@@ -1,14 +1,11 @@
-import: [
-    "~/.config/alacritty/themes/gruvbox_material_hard_dark.yml"
-]
-
 window:
-  opacity: 0.9
+  opacity: 0.95
   decorations: "None"
 
 font:
-  normal:
+  normal: 
     family : "JetBrainsMono NF"
+  size: 12
 
 # colorscheme gruvbox
 colors:
