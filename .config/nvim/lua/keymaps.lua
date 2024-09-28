@@ -68,3 +68,5 @@ vim.keymap.set('n' ,'<leader>gs', function ()
   vim.cmd(string.format('Git checkout %s', name))
 end, {})
 
+vim.keymap.set('n', '<leader>gS', '<cmd>Git status<CR>', {})
+
