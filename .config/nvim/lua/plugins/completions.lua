@@ -13,9 +13,6 @@ return {
       local cmp = require('cmp')
       local luasnip = require('luasnip')
       require('luasnip.loaders.from_vscode').lazy_load()
-
-      local select_opts = {behavior = cmp.SelectBehavior.Select}
-
       cmp.setup({
         snippet = {
           expand = function(args)
@@ -24,10 +21,6 @@ return {
         },
         completion = {
           completeopt = "menu,menuone,preview,noselect",
-        },
-        window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
           ['<C-e>'] = cmp.mapping.abort(),
