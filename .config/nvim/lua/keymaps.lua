@@ -40,6 +40,9 @@ vim.keymap.set('n', '<leader>dk', vim.lsp.buf.hover, {})
 --toggleterm
 vim.keymap.set({'n', 't'}, '<C-t>', '<cmd>ToggleTerm size=15 direction=horizontal name=terminal<CR>', {})
 
+--rename
+vim.keymap.set("n", "<leader>rn", ":IncRename ")
+
 --fugitive
 vim.keymap.set('n', '<leader>gg', '<cmd>Git<CR>', {})
 
