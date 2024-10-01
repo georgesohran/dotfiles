@@ -11,10 +11,12 @@ return {
       require('mason-lspconfig').setup({
         ensure_installed = {
           'html',
+          'tsserver',
+          'tailwindcss',
           'pyright',
-          'ast_grep',
           'lua_ls',
           'rust_analyzer',
+          'lwc_ls',
         }
       })
     end
