@@ -3,19 +3,25 @@ vim.o.showcmd = true
 vim.o.autowrite = true
 vim.o.cursorline = true
 
+vim.o.encoding = 'utf-8'
+vim.o.fileencoding = 'utf-8'
+vim.scriptencoding = 'utf-8'
+
 vim.o.tabstop = 2
+vim.o.autoindent = true
+vim.o.smartindent = true
 vim.o.shiftwidth = 2
 vim.o.shiftround = true
 vim.o.expandtab = true
+
+vim.o.scrolloff = 10
 
 vim.o.relativenumber = true
 vim.o.number = true
 vim.wo.fillchars='eob: '
 
 vim.o.wrap = false
-
 vim.o.background = 'dark'
-
 vim.o.backspace = 'indent,eol,start'
 
 vim.o.splitright = true
