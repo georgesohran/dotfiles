@@ -12,11 +12,14 @@ return {
       },
       view = {
         width = 30,
+        signcolumn = 'yes'
       },
       renderer = {
         group_empty = true,
+        icons = {
+          git_placement = 'right_align'
+        }
       },
-      git_placment = 'after'
     })
   end
 }
