@@ -16,6 +16,7 @@ return {
       renderer = {
         group_empty = true,
       },
+      git_placment = 'after'
     })
   end
 }
