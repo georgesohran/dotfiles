@@ -57,6 +57,8 @@ vim.keymap.set('n', '<leader>gc', function ()
   vim.cmd(string.format('Git commit -m "%s"', msg))
 end, {})
 
+vim.keymap.set('n', '<leader>gC', '<cmd>Git clean<CR>', {})
+
 vim.keymap.set('n', '<leader>gP', '<cmd>Git push<CR>', {})
 
 vim.keymap.set('n', '<leader>gp', '<cmd>Git pull<CR>', {})
