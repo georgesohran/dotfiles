@@ -16,9 +16,9 @@ return {
       },
       renderer = {
         group_empty = true,
-        icons = {
-          git_placement = 'right_align'
-        }
+        -- icons = {
+        --   git_placement = 'right_align'
+        -- }
       },
     })
   end
