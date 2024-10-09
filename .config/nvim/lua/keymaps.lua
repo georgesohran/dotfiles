@@ -46,6 +46,8 @@ vim.keymap.set("n", "<leader>rn", ":IncRename ")
 --fugitive
 vim.keymap.set('n', '<leader>gg', '<cmd>Git<CR>', {})
 
+vim.keymap.set('n', '<leader>gl', '<cmd>Git log<CR>', {})
+
 vim.keymap.set('n', '<leader>ga', function ()
   local path = vim.fn.expand('%:p')
   vim.cmd(string.format('Git add %s', path))
