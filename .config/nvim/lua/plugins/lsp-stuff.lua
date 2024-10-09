@@ -16,7 +16,7 @@ return {
           'pyright',
           'lua_ls',
           'rust_analyzer',
-          'harper_ls'
+          'harper_ls',
         }
       })
     end
@@ -27,14 +27,17 @@ return {
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local lsp_conf = require('lspconfig')
-      lsp_conf.html.setup({capabilities = capabilities})
-      lsp_conf.ts_ls.setup({capabilities = capabilities})
+      lsp_conf.html.setup({capabilities=capabilities})
+      lsp_conf.ts_ls.setup({
+        capabilities = capabilities,
+        filetypes = { "javascript", "javascriptreact", "javascript.jsx" },
+        root_dir = function() return vim.loop.cwd() end
+      })
       lsp_conf.tailwindcss.setup({capabilities = capabilities})
       lsp_conf.pyright.setup({capabilities = capabilities})
       lsp_conf.lua_ls.setup({capabilities = capabilities})
       lsp_conf.rust_analyzer.setup({capabilities = capabilities})
       lsp_conf.harper_ls.setup({capabilities = capabilities})
-
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
