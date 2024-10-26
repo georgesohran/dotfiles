@@ -29,13 +29,22 @@ return {
             select = true,
           }),
         }),
+        formatting = {
+          fields = {'menu', 'abbr', 'kind'},
+          formatting = {
+            format = function(entry, vim_item)
+              vim_item.menu = entry.source.name
+              return vim_item
+            end,
+          }
+        },
         sources = cmp.config.sources({
-          { name = 'luasnip' },
           { name = 'nvim_lsp' },
+          { name = 'luasnip' },
+          { name = "buffer" },
           { name = 'path' },
         })
       })
     end
   }
 }
-
