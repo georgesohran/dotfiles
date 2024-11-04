@@ -106,7 +106,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PS1="\[\e[0;32m\][ \[\e[0;34m\]\w \[\e[0;32m\]] \[\e[0;37m\]$ \[\e[0m\]"
+export PS1="\[\e[0;33m\][ \[\e[0;34m\]\w \[\e[0;33m\]] \[\e[0;37m\]$ \[\e[0m\]"
 
 export PATH=$PATH:/usr/local/go/bin
 
