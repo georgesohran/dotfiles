@@ -17,8 +17,15 @@ return {
       renderer = {
         group_empty = true,
         icons = {
-          git_placement = 'right_align'
-        }
+          git_placement = 'right_align',
+          symlink_arrow = "  ",
+          glyphs = {
+            git = {
+              untracked = " ",
+              unstaged = " "
+            }
+          }
+        },
       },
     })
   end
