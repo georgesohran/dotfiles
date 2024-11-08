@@ -1,0 +1,39 @@
+window {
+    font-family: JuliaMono;
+    font-size: 14pt;
+    color: #ebdbb2; /* text */
+    background-color: rgba(28, 28, 28, 0.76);
+}
+
+button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #ebdbb2;
+    background-color: rgba(28, 28, 28, 0.76);
+    margin: 10px;
+    transition:
+        box-shadow 0.3s ease-in-out,
+        background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #504945;
+}
+
+#logout {
+    background-image: image(url("./logout.png"));
+}
+#suspend {
+    background-image: image(url("./sleep.png"));
+}
+#shutdown {
+    background-image: image(url("./power.png"));
+}
+#reboot {
+    background-image: image(url("./restart.png"));
+}
+
