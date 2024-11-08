@@ -14,7 +14,8 @@
     "modules-right": [
       "cpu",
       "memory",
-      "battery"
+      "battery",
+      "custom/logout"
     ],
     // Modules configuration
     "hyprland/workspaces": {
@@ -77,5 +78,10 @@
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
+    },
+    "custom/logout": {
+      "format": " ⏻ ",
+      "tooltip": "logout menu",
+      "on-click": "wlogout --protocol layer-shell"
     }
 }
