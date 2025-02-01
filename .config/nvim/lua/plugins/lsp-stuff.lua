@@ -15,9 +15,9 @@ return {
           'tailwindcss',
           'pyright',
           'lua_ls',
-          -- 'rust_analyzer',
           'cssls',
-          'gopls'
+          'gopls',
+          'clangd',
         }
       })
     end
@@ -25,12 +25,8 @@ return {
   {
     'neovim/nvim-lspconfig',
     config = function()
-      -- vim.lsp.set_log_level("debug")
-
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-      -- local configs = require('lspconfig/configs')
 
       local lsp_conf = require('lspconfig')
       lsp_conf.ts_ls.setup({
@@ -39,6 +35,9 @@ return {
           'javascriptreact',
           'javascript',
           'javascript.jsx',
+          'typescript',
+          'typescriptreact',
+          'typescript.jsx',
           'css'
         }
       })
@@ -46,9 +45,9 @@ return {
       lsp_conf.tailwindcss.setup({capabilities = capabilities})
       lsp_conf.pyright.setup({capabilities = capabilities})
       lsp_conf.lua_ls.setup({capabilities = capabilities})
-      -- lsp_conf.rust_analyzer.setup({capabilities = capabilities})
       lsp_conf.cssls.setup({capabilities = capabilities})
       lsp_conf.gopls.setup({capabilities = capabilities})
+      lsp_conf.clangd.setup({capabilities = capabilities})
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
