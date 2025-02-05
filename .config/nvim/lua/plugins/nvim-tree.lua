@@ -24,9 +24,15 @@ return {
               untracked = " ",
               unstaged = " "
             }
-          }
+          },
+          show = {
+            git = true,
+          },
         },
       },
-    })
+      filters = {
+        git_ignored = false
+      }
+   })
   end
 }
