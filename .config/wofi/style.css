@@ -1,8 +1,9 @@
-window {
+#window {
     margin: 0px;
     background-color: #282828;
     border-radius: 10px;
     border: 2px solid #fe8019;
+    background-color: rgba(28, 28, 28, 0.7);
 }
 
 #input {
@@ -10,7 +11,7 @@ window {
     border: none;
     color: #fbdbb2;
     background-color: #504945;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 #inner-box {
@@ -35,12 +36,12 @@ window {
 
 #entry:selected {
     background-color: #504945;
-    border-radius: 5px;
+    border-radius: 10px;
     outline: none;
 }
 
 #entry:selected * {
     background-color: #504945;
-    border-radius: 5px;
+    border-radius: 10px;
     outline: none;
 }
