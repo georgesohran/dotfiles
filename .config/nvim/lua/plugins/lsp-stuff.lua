@@ -17,7 +17,6 @@ return {
           'lua_ls',
           'cssls',
           'gopls',
-          'clangd',
         }
       })
     end
@@ -46,7 +45,6 @@ return {
       lsp_conf.pyright.setup({capabilities = capabilities})
       lsp_conf.lua_ls.setup({capabilities = capabilities})
       lsp_conf.cssls.setup({capabilities = capabilities})
-      lsp_conf.gopls.setup({capabilities = capabilities})
       lsp_conf.clangd.setup({capabilities = capabilities})
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
