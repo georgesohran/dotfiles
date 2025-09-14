@@ -1,0 +1,13 @@
+.index {
+  margin: 10px;
+  font-size: 25px;
+  background-color: rgba(28, 28, 28, 0.8);
+}
+
+.workspace {
+  font-size: 35px;
+}
+
+.client {
+  font-size: 25px;
+}
