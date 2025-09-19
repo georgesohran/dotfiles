@@ -34,3 +34,6 @@ hide_when_typing = true
 [window]
 decorations = "None"
 opacity = 0.9
+
+[selection]
+save_to_clipboard = true
