@@ -1,4 +1,5 @@
 width=650
+hight=550
 location=center
 prompt=Search Applications...
 filter_rate=100
@@ -20,3 +21,7 @@ hide_search=false
 parse_search=false
 key_expand=Tab
 key_exit=Escape
+key_up=Ctrl-k
+key_down=Ctrl-j
+key_up=Ctrl-p
+key_down=Ctrl-n
