@@ -2,8 +2,10 @@
     margin: 0px;
     background-color: #282828;
     border-radius: 10px;
-    border: 2px solid #fe8019;
-    background-color: rgba(28, 28, 28, 0.7);
+    border: 2px solid #b8bb26;
+    background-color: rgba(28, 28, 28, 0.9);
+    font-family: "JetBrainsMono NF";
+    font-size: 16;
 }
 
 #input {
