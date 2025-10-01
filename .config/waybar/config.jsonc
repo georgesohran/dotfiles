@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
+  "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
@@ -12,6 +12,8 @@
       "hyprland/window"
     ],
     "modules-right": [
+      "tray",
+      "wireplumber",
       "cpu",
       "memory",
       "battery",
@@ -23,37 +25,26 @@
       "warp-on-scroll": false,
       "enable-bar-scroll": true,
       "disable-scroll-wraparound": true,
-      "format": "{icon}",
-      // "format-icons": {
-      //   "1": "",
-      //   "2": "",
-      //   "3": "",
-      //   "4": "",
-      //   "5": "",
-      //   "9": "",
-      //   "10": ""
-      // }
+      "format": "{icon}"
     },
     "hyprland/window": {
       "format": "{title}",
-      "max-length": 40,
+      "max-length": 50,
+      "min-length": 10, 
       "all-outputs": true
     },
-    "load": {
-      "format": " {}"
-    },
     "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+      "format": "{:%Y-%m-%d %H:%M}" ,
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
       "format": " {usage}%",
-      "tooltip": false
+      "tooltip": true
     },
     "memory": {
       "interval": 30,
-      "format": " {}% ",
+      "format": " {}%",
       "max-length": 10
     },
     "temperature": {
@@ -79,9 +70,18 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
+    "wireplumber": {
+      "orientation": "horizontal",
+      "format": "{icon} {volume}%",
+      "format-icons": ["", "", ""],
+      "format-muted": ""
+    },
+    "tray": {
+      "spacing": 10
+    },
     "custom/logout": {
       "format": " ⏻ ",
       "tooltip": "logout menu",
-      "on-click": "wlogout --protocol layer-shell"
+      "on-click": "wlogout --protocol layer-shell --buttons-per-row=2"
     }
 }
