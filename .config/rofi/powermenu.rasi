@@ -3,7 +3,7 @@ configuration {
 }
 
 * {
-    background: #282828FF;
+    background: #282828AA;
     background-alt: #353535FF;
     foreground: #EBDBB2FF;
     selected: #FB4934FF;
