@@ -1,0 +1,73 @@
+configuration {
+    show-icons: false;
+}
+
+* {
+    background: #282828FF;
+    background-alt: #353535FF;
+    foreground: #EBDBB2FF;
+    selected: #FB4934FF;
+    active: #FE8019FF;
+}
+
+window {
+    transparency: "real";
+    location: north east;
+    anchor: east;
+    fullscreen: false;
+    width: 110px;
+    x-offset: -10px;
+    y-offset: 10px;
+
+    enabled: true;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: @selected;
+    cursor: "default";
+    background-color: @background;
+}
+
+mainbox {
+    enabled: true;
+    padding:  10px;
+    background-color:  transparent;
+    children:  [ "listview" ];
+}
+
+listview {
+    enabled: true;
+    columns:  1;
+    lines: 3;
+    cycle: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    
+    spacing: 10px;
+    background-color: transparent;
+    text-color: @foreground;
+    cursor: "default";
+}
+
+element {
+    enabled: true;
+    padding: 20px ;
+    border-radius: 10px;
+    background-color: @background-alt;
+    text-color: @foreground;
+    cursor: pointer;
+}
+element-text {
+    font: "feather bold 24";
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}
+element selected.normal {
+    background-color: @active;
+    text-color: @background;
+}
