@@ -4,7 +4,7 @@ configuration {
 
 * {
     background: #282828AA;
-    background-alt: #353535FF;
+    background-alt: #353535AA;
     foreground: #EBDBB2FF;
     selected: #FB4934FF;
     active: #FE8019FF;
