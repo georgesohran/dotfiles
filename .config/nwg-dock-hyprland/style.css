@@ -1,0 +1,36 @@
+window {
+  background: rgba(28, 28, 28, 0.8);
+	border-width: 2px;
+  border-radius: 10px;
+  border-color: #83a598;
+  border-style: solid
+}
+
+#box {
+  padding: 5px;
+}
+
+button, image {
+	background: none;
+	border-style: none;
+	box-shadow: none;
+	color: #999
+}
+
+button {
+	padding: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+  margin-top: 2px;
+	border-radius: 10px;
+  font-size: 16px
+}
+
+button:hover {
+	background-color: #504945;
+  transition: linear 0.2s;
+}
+
+button:focus {
+	box-shadow: none
+}
