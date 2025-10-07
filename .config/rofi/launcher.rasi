@@ -10,7 +10,7 @@ configuration {
 
 * {
     background: #282828AA;
-    background-alt: #353535AA;
+    background-alt: #504945AA;
     foreground: #ebdbb2;
     foreground-alt: #bdae93;
     blue: #83a598DD;
@@ -142,8 +142,6 @@ element normal.active {
 }
 element selected.normal {
     background-color: @background-alt;
-    border: 2px solid;
-    border-color: @green;
     text-color: @foreground;
 }
 element-icon {
