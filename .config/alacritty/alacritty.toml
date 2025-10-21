@@ -10,13 +10,13 @@ yellow = "#d8a657"
 
 [colors.normal]
 black = "#32302f"
-blue = "#7daea3"
-cyan = "#89b482"
-green = "#a9b665"
+blue = "#83a598"
+cyan = "#83a598"
+green = "#b8bb26"
 magenta = "#d3869b"
-red = "#ea6962"
-white = "#d4be98"
-yellow = "#d8a657"
+red = "#fb4934"
+white = "#ebdbb2"
+yellow = "#fe8019"
 
 [colors.primary]
 background = "#1d2021"
