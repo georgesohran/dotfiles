@@ -1,9 +1,7 @@
 // -*- mode: jsonc -*-
 {
-  "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
+  "layer": "top", 
+    "spacing": 4, 
     "modules-left": [
       "clock",
       "hyprland/workspaces"
@@ -14,6 +12,7 @@
     "modules-right": [
       "tray",
       "wireplumber",
+      "temperature",
       "cpu",
       "memory",
       "battery",
@@ -25,7 +24,7 @@
       "warp-on-scroll": false,
       "enable-bar-scroll": true,
       "disable-scroll-wraparound": true,
-      "format": "{icon}"
+      "format": "{name}"
     },
     "hyprland/window": {
       "format": "{title}",
@@ -48,11 +47,11 @@
       "max-length": 10
     },
     "temperature": {
-        // "thermal-zone": 2,
+        "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 70,
         // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C",
         "format-icons": ["", "", ""]
     },
     "battery": {
@@ -70,6 +69,15 @@
         // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
+    "bluetooth": {
+      "format": " {status}",
+      "format-connected": " {device_alias}",
+      "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+      "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    },
     "wireplumber": {
       "orientation": "horizontal",
       "format": "{icon} {volume}%",
@@ -82,6 +90,6 @@
     "custom/logout": {
       "format": " ⏻ ",
       "tooltip": "logout menu",
-      "on-click": "wlogout --protocol layer-shell --buttons-per-row=2"
+      "on-click": "~/.config/rofi/powermenu.sh"
     }
 }
